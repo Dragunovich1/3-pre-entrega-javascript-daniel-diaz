@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Ruta al favicon -->
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <title>Cajero Automático</title>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="app">
+            <h1>Bienvenido al Cajero Automático</h1>
+            <button onclick="mostrarPantallaIngreso()">Ingresar sin Tarjeta</button>
+        </div>
+
+        <div id="pantallaIngreso" class="hidden">
+            <h2>Ingrese sus Datos</h2>
+            <div class="inputContainer">
+                <input type="text" id="nombreInput" placeholder="Nombre" class="inputText">
+                <input type="text" id="apellidoInput" placeholder="Apellido" class="inputText">
+                <input type="text" id="dniInput" placeholder="Número de DNI (8 dígitos)" class="inputText">
+            </div>
+            <button onclick="iniciarSesion()">Iniciar Sesión</button>
+        </div>
+
+        <div id="menuPrincipal" class="hidden">
+            <h2>Bienvenido</h2>
+            <button onclick="consultarSaldo()">Consultar Saldo</button>
+            <button onclick="retirarEfectivo()">Retirar Efectivo</button>
+            <button onclick="depositar()">Depositar</button>
+            <button onclick="verHistorial()">Ver Últimos Movimientos</button>
+            <button onclick="finalizarSesion()">Finalizar Sesión</button>
+        </div>
+
+        <!-- Nuevo elemento para mostrar mensajes -->
+        <div id="mensaje" class="hidden"></div>
+        <!-- Nuevo elemento para mostrar el saldo -->
+        <div id="saldo" class="hidden"></div>
+        <!-- Nuevo elemento para mostrar el menu de retiro de efvo -->
+        <div id="retiro" class="hidden"></div>
+        <!-- Nuevo elemento para mostrar el menu de depo -->
+        <div id="deposito" class="hidden"></div>
+        <!-- Nuevo elemento para mostrar los ultimos movimientos -->
+        <div id="historial" class="hidden"></div>
+        <!-- Agrega una nueva pantalla de despedida al HTML -->
+        <div id="despedida" class="hidden">
+            <h2>¡Gracias por utilizar el simulador!</h2>
+            <button onclick="regresarMenuIngresoSinTarjeta()">Volver al Menú de Ingreso sin Tarjeta</button>
+        </div>
+
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

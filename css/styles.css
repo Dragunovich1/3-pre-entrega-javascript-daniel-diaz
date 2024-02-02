@@ -1,0 +1,194 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+}
+
+#contenedor {
+    display: flex;
+    flex-direction: column;
+}
+
+#app, #pantallaIngreso, #menuPrincipal {
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 80vh; /* Ajustado el ancho */
+    height: 60vh;
+    margin: 20px auto;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centramos el texto */
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    color: #fff;
+    background-color: #4CAF50;
+    margin-top: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3fc253; /* Verde oscuro */
+}
+
+.inputText {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #fff; /* Fondo blanco */
+    border: none; /* Oculta el borde por defecto */
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Agrega estilos generales para el elemento de mensaje */
+#mensaje {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    width: 80%;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+/* Agrega estilos para mensajes de éxito */
+.success {
+    background-color: #4CAF50; /* Verde */
+    color: #fff;
+}
+
+/* Agrega estilos para mensajes de error */
+.error {
+    background-color: #f44336; /* Rojo */
+    color: #fff;
+}
+
+#saldo {
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 80vh; /* Ajustado el ancho */
+    height: 60vh;
+    margin: 20px auto;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centramos el texto */
+}
+
+#saldo p {
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+#saldo button {
+    margin-top: 60px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+#saldo button:hover {
+    background-color: #3fc253; /* Verde oscuro */
+}
+
+/*--------------------------------------------------------*/
+
+/* Agrega estilos para la pantalla de despedida */
+#despedida {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    display: none;
+}
+
+#despedida button {
+    color: #fff;
+    background-color: #4CAF50;
+    margin-top: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#despedida button:hover {
+    background-color: #3fc253; /* Verde oscuro */
+}
+
+#retiro, #deposito, #historial {
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 80vh; /* Ajustado el ancho */
+    height: 60vh;
+    margin: 20px auto;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centramos el texto */
+}
+
+#retiro input, #deposito input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #fff; /* Fondo blanco */
+    border: none; /* Oculta el borde por defecto */
+}
+
+#retiro button, #deposito button, #historial button {
+    color: #fff;
+    background-color: #4CAF50;
+    margin-top: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#retiro button:hover, #deposito button:hover, #historial button:hover {
+    background-color: #3fc253; /* Verde oscuro */
+}
+
+#historial p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+#historial button {
+    margin-top: 20px;
+}
