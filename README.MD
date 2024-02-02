@@ -1,4 +1,4 @@
-## Segunda Pre-entrega JavaScript - CoderHouse
+## Tercera Pre-entrega JavaScript - CoderHouse
 
 Alumno: Daniel Díaz
 
@@ -14,14 +14,23 @@ Se trata de un simulador de cajero automatico del tipo ATM.
 
 ## Rubricas de entrega:
 
-  -Estructura HTML del Proyecto: Index.html, cuenta con estructura basica de HTML a modo de portada.
+- Agregar uso de JSON y Storage
+
+- Agregar uso de DOM y eventos del usuario
+
+- Codificar funciones de procesos esenciales y notificación de resultados por HTML, añadiendo interacción al simulador.
+
+- Ampliar y refinar el flujo de trabajo del script en términos de captura de eventos, procesamiento del simulador y notificación de resultados
+  en forma de salidas por HTML, modificando el DOM.
   
-  -Variables de JS necesarias: Se utilizan variables para el saldo, historial de transacciones, etc.
-  
-  -Funciones esenciales del proceso a simular: funciones para consultar saldo, retirar efectivo, depositar, ver historial, filtrar transacciones por tipo, etc.
-  
-  -Objetos de JS: Se utiliza el objeto cliente para almacenar información sobre el cliente.
-  
-  -Arrays: Se utiliza un array llamado historialTransacciones para almacenar las transacciones.
-  
-  -Métodos de búsqueda y filtrado sobre el Array: Se utiliza el método filter en la función mostrarTransaccionesPorTipo para filtrar transacciones por tipo.
+
+
+## Objetivos específicos
+
+- Definir eventos a manejar y su función de respuesta.
+
+- Modificar el DOM, ya sea para definir elementos al cargar la página o para realizar salidas de un procesamiento.
+
+- Almacenar datos (clave-valor) en el Storage y recuperarlos
+
+
