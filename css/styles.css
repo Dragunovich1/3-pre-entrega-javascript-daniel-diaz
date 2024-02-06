@@ -77,7 +77,7 @@ button:hover {
     align-items: center;
 }
 
-/* Agrega estilos generales para el elemento de mensaje */
+/* estilos generales para el elemento de mensaje */
 #mensaje {
     margin-top: 20px;
     padding: 15px;
@@ -88,13 +88,13 @@ button:hover {
     box-sizing: border-box;
 }
 
-/* Agrega estilos para mensajes de éxito */
+/*estilos para mensajes de éxito */
 .success {
     background-color: #4CAF50; /* Verde */
     color: #fff;
 }
 
-/* Agrega estilos para mensajes de error */
+/*estilos para mensajes de error */
 .error {
     background-color: #f44336; /* Rojo */
     color: #fff;
@@ -136,7 +136,6 @@ button:hover {
 
 /*--------------------------------------------------------*/
 
-/* Agrega estilos para la pantalla de despedida */
 #despedida {
     background-color: #fff;
     border-radius: 8px;
@@ -211,12 +210,12 @@ button:hover {
 
 
 .botones-container {
-    margin-top: 10px;  /* Puedes ajustar el espacio superior según tus preferencias */
-    display: flex;  /* Utilizamos flexbox para controlar la disposición de los botones */
-    justify-content: center;  /* Centramos horizontalmente los elementos dentro del contenedor */
-    align-items: center;  /* Centramos verticalmente los elementos dentro del contenedor */
+    margin-top: 10px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .botones-container button {
-    margin-right: 10px;  /* Puedes ajustar el espacio entre los botones según tus preferencias */
+    margin-right: 10px;
 }
