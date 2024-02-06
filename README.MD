@@ -24,7 +24,7 @@ Se trata de un simulador de cajero automatico del tipo ATM.
   
   -Implementación con uso de JSON y Storage.
   
-	-Se utilizó JSON para almacenar y recuperar los datos del cliente (por ahora solo nombre, apellido y DNI), en el almacenamiento local del navegador.
+	-Se utilizó JSON para almacenar y recuperar los datos del cliente, en el almacenamiento local del navegador.
   
   -Modificación del DOM y detección de eventos de usuario.
   
