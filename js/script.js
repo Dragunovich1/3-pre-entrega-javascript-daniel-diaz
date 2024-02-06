@@ -38,6 +38,7 @@ function mostrarPantallaIngreso() {
 }
 
 
+
 //--------------------------------------------------------------------------------
 //Bloque de funcion de inicio de sesion
 //--------------------------------------------------------------------------------
@@ -67,8 +68,13 @@ function iniciarSesion() {
     cliente = {
         nombre: nombre,
         apellido: apellido,
-        dni: dni
+        dni: dni,
+        saldo: saldo, // Se agrega el saldo al objeto del cliente
+        historialTransacciones: historialTransacciones // Se agrega el historial de transacciones al objeto del cliente
     };
+
+    // Almacenar los datos del cliente en el almacenamiento local
+    guardarDatosClienteEnLocalStorage();
 
     mostrarMenuPrincipal();
 }
@@ -251,13 +257,17 @@ function verHistorial() {
 //--------------------------------------------------------------------------------
 
 function finalizarSesion() {
+    // Llamada para limpiar los datos del cliente en localStorage
+    limpiarDatosClienteDelLocalStorage();
+    // Restablecer variables globales a sus valores predeterminados
+    saldo = 1000;
+    historialTransacciones = [];
     mostrarDespedida();
 }
 
 function mostrarDespedida() {
     ocultarTodosLosElementos('despedida');
     mostrarElemento('despedida');
-
 }
 
 // Agrega una función para regresar al menú de ingreso sin tarjeta desde la pantalla de despedida
@@ -265,6 +275,40 @@ function regresarMenuIngresoSinTarjeta() {
     ocultarElemento('despedida');
     mostrarElemento('app');
 }
+
+//--------------------------------------------------------------------------------
+//Bloque de Funciones para local storage
+//--------------------------------------------------------------------------------
+
+// Función para guardar los datos del cliente en localStorage al iniciar sesión
+function guardarDatosClienteEnLocalStorage() {
+    localStorage.setItem('cliente', JSON.stringify(cliente));
+}
+
+function recuperarDatosClienteDelLocalStorage() {
+    const clienteGuardado = localStorage.getItem('cliente');
+    if (clienteGuardado) {
+        cliente = JSON.parse(clienteGuardado);
+        // Actualizar variables globales con los datos del cliente recuperados
+        saldo = cliente.saldo;
+        historialTransacciones = cliente.historialTransacciones;
+        mostrarMenuPrincipal();
+        // Mostrar un mensaje de alerta
+        mostrarMensaje("Datos del cliente recuperados del almacenamiento local.", 'success');
+    } else {
+        // Mostrar un mensaje de alerta si no se encuentran datos en el almacenamiento local
+        mostrarMensaje("No se encontraron datos del cliente en el almacenamiento local.", 'error');
+    }
+}
+
+
+// Función para limpiar los datos del cliente del localStorage al finalizar sesión
+function limpiarDatosClienteDelLocalStorage() {
+    localStorage.removeItem('cliente');
+}
+
+// Llamada para recuperar los datos del cliente al cargar la página
+recuperarDatosClienteDelLocalStorage();
 
 //--------------------------------------------------------------------------------
 //Bloques de funciones adicionales
