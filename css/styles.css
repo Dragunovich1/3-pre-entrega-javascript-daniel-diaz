@@ -137,24 +137,27 @@ button:hover {
 /*--------------------------------------------------------*/
 
 #despedida {
-    background-color: #fff;
+    margin-top: 20px;
+    padding: 30px;
     border-radius: 8px;
+    transition: background-color 0.3s;
+    width: 80vh; /* Ajustado el ancho */
+    height: 60vh;
+    margin: 20px auto;
+    box-sizing: border-box;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
-    display: none;
+    text-align: center; /* Centramos el texto */
 }
 
 #despedida button {
-    color: #fff;
-    background-color: #4CAF50;
-    margin-top: 10px;
+    margin-top: 60px;
     padding: 12px 24px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
     transition: background-color 0.3s;
 }
 

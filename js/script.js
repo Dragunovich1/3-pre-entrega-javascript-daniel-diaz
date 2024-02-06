@@ -105,12 +105,11 @@ function consultarSaldo() {
     mostrarElemento('saldo');
 
     let saldoElement = document.getElementById('saldo');
-    saldoElement.innerHTML = `<h2>Su saldo es:</h2><p>$${saldo}</p>`;
+    saldoElement.innerHTML = `<h2>Su saldo es:</h2><p>$${cliente.saldo}</p>`;
 
     // Agrega un botón para regresar al menú principal
-    saldoElement.innerHTML += '<button onclick="regresarMenuPrincipal()">Regresar al menu</button>';
+    saldoElement.innerHTML += '<button onclick="regresarMenuPrincipal()">Regresar al menú</button>';
 }
-
 //--------------------------------------------------------------------------------
 //Bloque de funcion de retiro de efvo
 //--------------------------------------------------------------------------------
@@ -155,15 +154,18 @@ function realizarRetiro() {
 
     if (isNaN(monto) || monto <= 0) {
         mostrarMensaje("Ingrese un monto válido.", 'error');
-    } else if (monto > saldo) {
+    } else if (monto > cliente.saldo) { // Cambio de 'saldo' a 'cliente.saldo'
         mostrarMensaje("Fondos insuficientes.", 'error');
     } else {
-        saldo -= monto;
+        cliente.saldo -= monto; // Actualización de 'saldo' a 'cliente.saldo'
         registrarTransaccion("Retiro", -monto);
-        mostrarMensaje(`Retiro exitoso. Nuevo saldo: $${saldo}`, 'success');
+        guardarDatosClienteEnLocalStorage(); // Guardar el cliente actualizado en el almacenamiento local
+        mostrarMensaje(`Retiro exitoso. Nuevo saldo: $${cliente.saldo}`, 'success'); // Actualización de 'saldo' a 'cliente.saldo'
         regresarMenuPrincipal();
+        guardarHistorialTransaccionesEnLocalStorage(); // Guardar historial de transacciones en el almacenamiento local
     }
 }
+
 
 //--------------------------------------------------------------------------------
 //Bloque de funcion de deposito
@@ -209,10 +211,11 @@ function realizarDeposito() {
     if (isNaN(monto) || monto <= 0) {
         mostrarMensaje("Ingrese un monto válido.", 'error');
     } else {
-        saldo += monto;
+        cliente.saldo += monto; // Actualización de 'saldo' a 'cliente.saldo'
         registrarTransaccion("Depósito", monto);
-        mostrarMensaje(`Depósito exitoso. Nuevo saldo: $${saldo}`, 'success');
+        mostrarMensaje(`Depósito exitoso. Nuevo saldo: $${cliente.saldo}`, 'success'); // Actualización de 'saldo' a 'cliente.saldo'
         regresarMenuPrincipal();
+        guardarHistorialTransaccionesEnLocalStorage(); // Guardar historial de transacciones en el almacenamiento local
     }
 }
 
@@ -249,7 +252,11 @@ function verHistorial() {
         }
     }
 
-    historialElement.innerHTML += '<button onclick="regresarMenuPrincipal()">Regresar al Menú</button>';
+    // Crear el botón de regreso al menú principal
+    let btnRegresarMenu = document.createElement('button');
+    btnRegresarMenu.textContent = 'Regresar al Menú';
+    btnRegresarMenu.onclick = regresarMenuPrincipal;
+    historialElement.appendChild(btnRegresarMenu);
 }
 
 //--------------------------------------------------------------------------------
@@ -285,13 +292,16 @@ function guardarDatosClienteEnLocalStorage() {
     localStorage.setItem('cliente', JSON.stringify(cliente));
 }
 
+// Función para guardar el historial de transacciones en localStorage
+function guardarHistorialTransaccionesEnLocalStorage() {
+    localStorage.setItem('historialTransacciones', JSON.stringify(historialTransacciones));
+}
+
 function recuperarDatosClienteDelLocalStorage() {
     const clienteGuardado = localStorage.getItem('cliente');
     if (clienteGuardado) {
         cliente = JSON.parse(clienteGuardado);
-        // Actualizar variables globales con los datos del cliente recuperados
-        saldo = cliente.saldo;
-        historialTransacciones = cliente.historialTransacciones;
+        // Mostrar el menú principal después de recuperar los datos del cliente
         mostrarMenuPrincipal();
         // Mostrar un mensaje de alerta
         mostrarMensaje("Datos del cliente recuperados del almacenamiento local.", 'success');
@@ -301,14 +311,22 @@ function recuperarDatosClienteDelLocalStorage() {
     }
 }
 
+function recuperarHistorialTransaccionesDelLocalStorage() {
+    const historialGuardado = localStorage.getItem('historialTransacciones');
+    if (historialGuardado) {
+        historialTransacciones = JSON.parse(historialGuardado);
+    }
+}
 
 // Función para limpiar los datos del cliente del localStorage al finalizar sesión
 function limpiarDatosClienteDelLocalStorage() {
     localStorage.removeItem('cliente');
 }
 
-// Llamada para recuperar los datos del cliente al cargar la página
+// Llamada para recuperar los datos del cliente y el historial de transacciones al cargar la página
 recuperarDatosClienteDelLocalStorage();
+recuperarHistorialTransaccionesDelLocalStorage();
+
 
 //--------------------------------------------------------------------------------
 //Bloques de funciones adicionales
