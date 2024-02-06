@@ -9,6 +9,22 @@ body {
     background-color: #f8f8f8;
 }
 
+#container {
+    width: 100%;
+    position: relative;
+}
+
+#fixed-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
 #contenedor {
     display: flex;
     flex-direction: column;
@@ -191,4 +207,16 @@ button:hover {
 
 #historial button {
     margin-top: 20px;
+}
+
+
+.botones-container {
+    margin-top: 10px;  /* Puedes ajustar el espacio superior según tus preferencias */
+    display: flex;  /* Utilizamos flexbox para controlar la disposición de los botones */
+    justify-content: center;  /* Centramos horizontalmente los elementos dentro del contenedor */
+    align-items: center;  /* Centramos verticalmente los elementos dentro del contenedor */
+}
+
+.botones-container button {
+    margin-right: 10px;  /* Puedes ajustar el espacio entre los botones según tus preferencias */
 }

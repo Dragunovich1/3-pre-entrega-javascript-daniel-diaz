@@ -114,10 +114,33 @@ function retirarEfectivo() {
     mostrarElemento('retiro');
 
     let retiroElement = document.getElementById('retiro');
-    retiroElement.innerHTML = '<h2>Retirar Efectivo</h2>';
-    retiroElement.innerHTML += '<input type="number" id="montoRetiroInput" placeholder="Ingrese el monto">';
-    retiroElement.innerHTML += '<button onclick="realizarRetiro()">Retirar</button>';
-    retiroElement.innerHTML += '<button onclick="regresarMenuPrincipal()">Cancelar</button>';
+    retiroElement.innerHTML = ''; // Limpiamos el contenido previo
+
+    let h2 = document.createElement('h2');
+    h2.textContent = 'Retirar Efectivo';
+    retiroElement.appendChild(h2);
+
+    let montoRetiroInput = document.createElement('input');
+    montoRetiroInput.type = 'number';
+    montoRetiroInput.id = 'montoRetiroInput';
+    montoRetiroInput.placeholder = 'Ingrese el monto';
+    retiroElement.appendChild(montoRetiroInput);
+
+    // Contenedor para los botones
+    let botonesContainer = document.createElement('div');
+    botonesContainer.className = 'botones-container';
+
+    let btnRetirar = document.createElement('button');
+    btnRetirar.textContent = 'Retirar';
+    btnRetirar.onclick = realizarRetiro;
+    botonesContainer.appendChild(btnRetirar);
+
+    let btnCancelar = document.createElement('button');
+    btnCancelar.textContent = 'Cancelar';
+    btnCancelar.onclick = regresarMenuPrincipal;
+    botonesContainer.appendChild(btnCancelar);
+
+    retiroElement.appendChild(botonesContainer);
 }
 
 function realizarRetiro() {
@@ -131,7 +154,7 @@ function realizarRetiro() {
     } else {
         saldo -= monto;
         registrarTransaccion("Retiro", -monto);
-        mostrarMensaje(`Retiro exitoso. Nuevo saldo: ${saldo}`, 'success');
+        mostrarMensaje(`Retiro exitoso. Nuevo saldo: $${saldo}`, 'success');
         regresarMenuPrincipal();
     }
 }
@@ -144,10 +167,33 @@ function depositar() {
     mostrarElemento('deposito');
 
     let depositoElement = document.getElementById('deposito');
-    depositoElement.innerHTML = '<h2>Depositar</h2>';
-    depositoElement.innerHTML += '<input type="number" id="montoDepositoInput" placeholder="Ingrese el monto">';
-    depositoElement.innerHTML += '<button onclick="realizarDeposito()">Depositar</button>';
-    depositoElement.innerHTML += '<button onclick="regresarMenuPrincipal()">Cancelar</button>';
+    depositoElement.innerHTML = ''; // Limpiamos el contenido previo
+
+    let h2 = document.createElement('h2');
+    h2.textContent = 'Depositar';
+    depositoElement.appendChild(h2);
+
+    let montoDepositoInput = document.createElement('input');
+    montoDepositoInput.type = 'number';
+    montoDepositoInput.id = 'montoDepositoInput';
+    montoDepositoInput.placeholder = 'Ingrese el monto';
+    depositoElement.appendChild(montoDepositoInput);
+
+    // Contenedor para los botones
+    let botonesContainer = document.createElement('div');
+    botonesContainer.className = 'botones-container';
+
+    let btnDepositar = document.createElement('button');
+    btnDepositar.textContent = 'Depositar';
+    btnDepositar.onclick = realizarDeposito;
+    botonesContainer.appendChild(btnDepositar);
+
+    let btnCancelar = document.createElement('button');
+    btnCancelar.textContent = 'Cancelar';
+    btnCancelar.onclick = regresarMenuPrincipal;
+    botonesContainer.appendChild(btnCancelar);
+
+    depositoElement.appendChild(botonesContainer);
 }
 
 function realizarDeposito() {
@@ -159,7 +205,7 @@ function realizarDeposito() {
     } else {
         saldo += monto;
         registrarTransaccion("Depósito", monto);
-        mostrarMensaje(`Depósito exitoso. Nuevo saldo: ${saldo}`, 'success');
+        mostrarMensaje(`Depósito exitoso. Nuevo saldo: $${saldo}`, 'success');
         regresarMenuPrincipal();
     }
 }
@@ -193,7 +239,7 @@ function verHistorial() {
             const tipoTransaccion = historialTransacciones[i].tipo;
             const monto = historialTransacciones[i].monto;
 
-            historialContainer.innerHTML += `<p>${fechaHora} | ${tipoTransaccion} | ${monto}</p>`;
+            historialContainer.innerHTML += `<p>${fechaHora} | ${tipoTransaccion} | $${monto}</p>`;
         }
     }
 
