@@ -17,7 +17,7 @@ Se trata de un simulador de cajero automatico del tipo ATM.
 	- Seleccionar la opcion "ingresar sin tarjeta"
 	- Ingresar los datos solicitados
 	- se contará con un saldo inicial de $1000
-	- se pueden realizar depositos, consulta de saldo y ver ultimos movimientos
+	- se pueden realizar extracciones, depositos, consulta de saldo y ver ultimos movimientos
 	- Por el momento el LocalStorage se utiliza para la persistencia de datos
 	- Al actualizar la pagina o cerrarla y volver a abrir los datos ingresados y las operaciones realizadas persistencia
 	- Seleccionar la opcion "Finalizar Sesion" para cerrar la sesion, esto limpiará todos los datos del LocalStorage
